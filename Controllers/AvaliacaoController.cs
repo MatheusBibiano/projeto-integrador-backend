@@ -35,7 +35,7 @@ namespace backend.Controlles
         {
             // Avaliacao? avaliacao = JsonSerializer.Deserialize<Avaliacao>(json);
 
-            Avaliacao dados = contexto.Avaliacaos.FirstOrDefault(p => p.IdAval == avaliacao.IdAval);
+            Avaliacao? dados = contexto.Avaliacaos.FirstOrDefault(p => p.IdAval == avaliacao.IdAval);
 
             if (dados == null)
             {
