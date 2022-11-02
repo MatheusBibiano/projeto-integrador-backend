@@ -8,7 +8,7 @@ namespace backend.Models
         public int IdUser { get; set; }
         public string Username { get; set; } = null!;
         public string Password { get; set; } = null!;
-        public bool Type { get; set; }
+        public int Type { get; set; }
         public int? FkPessoa { get; set; }
 
         public virtual Pessoa? FkPessoaNavigation { get; set; }
