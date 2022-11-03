@@ -23,14 +23,13 @@ namespace backend.Models
         public virtual DbSet<Colaborador> Colaboradors { get; set; } = null!;
         public virtual DbSet<Disciplina> Disciplinas { get; set; } = null!;
         public virtual DbSet<Pessoa> Pessoas { get; set; } = null!;
-        public virtual DbSet<Respostum> Resposta { get; set; } = null!;
+        public virtual DbSet<Resposta> Resposta { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseMySql("server=192.168.0.115;user=guest;password=123;database=letmerate", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.3.34-mariadb"));
             }
         }
@@ -251,7 +250,7 @@ namespace backend.Models
                     .HasColumnName("sobrenome");
             });
 
-            modelBuilder.Entity<Respostum>(entity =>
+            modelBuilder.Entity<Resposta>(entity =>
             {
                 entity.HasKey(e => e.IdResp)
                     .HasName("PRIMARY");

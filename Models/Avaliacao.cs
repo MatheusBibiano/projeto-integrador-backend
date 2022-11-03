@@ -7,7 +7,7 @@ namespace backend.Models
     {
         public Avaliacao()
         {
-            Resposta = new HashSet<Respostum>();
+            Resposta = new HashSet<Resposta>();
         }
 
         public int IdAval { get; set; }
@@ -19,6 +19,6 @@ namespace backend.Models
 
         public virtual Aluno? FkAlunoNavigation { get; set; }
         public virtual Aula? FkAulaNavigation { get; set; }
-        public virtual ICollection<Respostum> Resposta { get; set; }
+        public virtual ICollection<Resposta> Resposta { get; set; }
     }
 }

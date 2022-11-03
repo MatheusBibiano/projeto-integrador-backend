@@ -7,7 +7,7 @@ namespace backend.Models
     {
         public Colaborador()
         {
-            Resposta = new HashSet<Respostum>();
+            Resposta = new HashSet<Resposta>();
         }
 
         public int IdColab { get; set; }
@@ -17,6 +17,6 @@ namespace backend.Models
 
         public virtual Disciplina? FkDiscNavigation { get; set; }
         public virtual Pessoa? FkPessoaNavigation { get; set; }
-        public virtual ICollection<Respostum> Resposta { get; set; }
+        public virtual ICollection<Resposta> Resposta { get; set; }
     }
 }

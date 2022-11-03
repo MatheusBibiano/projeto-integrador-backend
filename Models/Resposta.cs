@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace backend.Models
 {
-    public partial class Respostum
+    public partial class Resposta
     {
         public int IdResp { get; set; }
         public DateTime DataResp { get; set; }
