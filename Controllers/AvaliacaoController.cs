@@ -16,10 +16,16 @@ namespace backend.Controlles
             contexto = bdContexto;
         }
 
-        [HttpGet]
-        public List<Avaliacao> Listar()
+        [HttpGet("{fkDisc}")]
+        public List<Avaliacao> Listar(int fkDisc)
         {
-            return contexto.Avaliacaos.ToList();
+            var result = (from avaliacao in this.contexto.Avaliacaos
+                          join aula in this.contexto.Aulas on avaliacao.FkAula equals aula.IdAula
+                          join disciplina in this.contexto.Disciplinas on aula.FkDisc equals disciplina.IdDisc
+                          where aula.FkDisc == fkDisc
+                          select avaliacao).ToList();
+
+            return result;
         }
 
         [HttpPost]
