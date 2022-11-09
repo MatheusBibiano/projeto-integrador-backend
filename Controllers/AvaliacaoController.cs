@@ -36,12 +36,12 @@ namespace backend.Controlles
             return "Avaliação realizada com sucesso!";
         }
 
-        [HttpDelete]
-        public string Excluir([FromBody] Avaliacao avaliacao)
+        [HttpDelete("{id}")]
+        public string Excluir(int id)
         {
             // Avaliacao? avaliacao = JsonSerializer.Deserialize<Avaliacao>(json);
 
-            Avaliacao? dados = contexto.Avaliacaos.FirstOrDefault(p => p.IdAval == avaliacao.IdAval);
+            Avaliacao? dados = contexto.Avaliacaos.FirstOrDefault(p => p.IdAval == id);
 
             if (dados == null)
             {
