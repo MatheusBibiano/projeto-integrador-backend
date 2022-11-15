@@ -17,15 +17,13 @@ namespace backend.Controlles
         }
 
         [HttpGet("{fkDisc}")]
-        public List<Avaliacao> Listar(int fkDisc)
+        public List<Object> Listar(int fkDisc)
         {
-            var result = (from avaliacao in this.contexto.Avaliacaos
-                          join aula in this.contexto.Aulas on avaliacao.FkAula equals aula.IdAula
-                          join disciplina in this.contexto.Disciplinas on aula.FkDisc equals disciplina.IdDisc
-                          where aula.FkDisc == fkDisc
-                          select avaliacao).ToList();
-
-            return result;
+            return (from avaliacao in this.contexto.Avaliacaos
+                    join aula in this.contexto.Aulas on avaliacao.FkAula equals aula.IdAula
+                    join disciplina in this.contexto.Disciplinas on aula.FkDisc equals disciplina.IdDisc
+                    where aula.FkDisc == fkDisc
+                    select new { avaliacao.IdAval, avaliacao.DataPostagem, avaliacao.Mensagem, avaliacao.Qualidade, avaliacao.FkAula, avaliacao.FkAluno, aula.Tema }).ToList<Object>();
         }
 
         [HttpPost]

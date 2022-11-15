@@ -32,5 +32,13 @@ namespace backend.Controlles
             contexto.SaveChanges();
             return "Aula cadastrada com sucesso!";
         }
+
+        [HttpPut]
+        public string EditarAula([FromBody] Aula novaAula)
+        {
+            contexto.Update(novaAula);
+            contexto.SaveChanges();
+            return "Aula editada com sucesso!";
+        }
     }
 }
