@@ -6,7 +6,7 @@
 * [Características](#características)
 * [Requisitos](#requisitos)
 * [Tecnologias](#tecnologias)
-* [Autor](#autor)
+* [Autor](#autores)
 * [Licença](#licença)
 <br/>
 
@@ -56,7 +56,7 @@ As seguintes tecnologias foram utilizadas na construção do projeto:
 
 ---
 
-### Autor
+### Autores
 
 | Matheus Bibiano                                       | Matheus Cereda                                         | Vinícius Fonseca                                       
 |-------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
