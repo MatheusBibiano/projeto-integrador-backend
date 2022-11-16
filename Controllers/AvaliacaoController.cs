@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using backend.Models;
-using System.Text.Json;
 
 namespace backend.Controlles
 {
@@ -16,13 +15,23 @@ namespace backend.Controlles
             contexto = bdContexto;
         }
 
-        [HttpGet("{fkDisc}")]
+        [HttpGet]
         public List<Object> Listar(int fkDisc)
         {
             return (from avaliacao in this.contexto.Avaliacaos
                     join aula in this.contexto.Aulas on avaliacao.FkAula equals aula.IdAula
                     join disciplina in this.contexto.Disciplinas on aula.FkDisc equals disciplina.IdDisc
                     where aula.FkDisc == fkDisc
+                    select new { avaliacao.IdAval, avaliacao.DataPostagem, avaliacao.Mensagem, avaliacao.Qualidade, avaliacao.FkAula, avaliacao.FkAluno, aula.Tema }).ToList<Object>();
+        }
+
+        [HttpGet]
+        public List<Object> ListarPorAula(int fkAula)
+        {
+            return (from avaliacao in this.contexto.Avaliacaos
+                    join aula in this.contexto.Aulas on avaliacao.FkAula equals aula.IdAula
+                    join disciplina in this.contexto.Disciplinas on aula.FkDisc equals disciplina.IdDisc
+                    where aula.IdAula == fkAula
                     select new { avaliacao.IdAval, avaliacao.DataPostagem, avaliacao.Mensagem, avaliacao.Qualidade, avaliacao.FkAula, avaliacao.FkAluno, aula.Tema }).ToList<Object>();
         }
 
@@ -34,11 +43,9 @@ namespace backend.Controlles
             return "Avaliação realizada com sucesso!";
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete]
         public string Excluir(int id)
         {
-            // Avaliacao? avaliacao = JsonSerializer.Deserialize<Avaliacao>(json);
-
             Avaliacao? dados = contexto.Avaliacaos.FirstOrDefault(p => p.IdAval == id);
 
             if (dados == null)

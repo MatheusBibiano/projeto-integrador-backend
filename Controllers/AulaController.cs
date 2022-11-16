@@ -15,14 +15,12 @@ namespace backend.Controlles
             contexto = bdContexto;
         }
 
-        [HttpGet("{fkDisc}")]
+        [HttpGet]
         public List<Aula> Listar(int fkDisc)
         {
-            var result = (from aula in this.contexto.Aulas
-                          where aula.FkDisc == fkDisc
-                          select aula).ToList();
-
-            return result;
+            return (from aula in this.contexto.Aulas
+                    where aula.FkDisc == fkDisc
+                    select aula).ToList();
         }
 
         [HttpPost]
