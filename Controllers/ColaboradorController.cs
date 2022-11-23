@@ -15,7 +15,7 @@ namespace backend.Controlles
             contexto = bdContexto;
         }
 
-        [HttpGet("{idPessoa}")]
+        [HttpGet]
         public Object GetDashboardColabData(int idPessoa)
         {
             var result = (from pessoa in this.contexto.Pessoas
