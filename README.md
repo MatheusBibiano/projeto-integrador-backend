@@ -30,7 +30,7 @@ Projeto em construção 🛠️
 
 1. Cria conexão com o banco:
 ```bash
-    $ dotnet ef dbcontext scaffold "Server=192.168.0.115;User=guest;Password=123;Database=letmerate" "Pomelo.EntityFrameworkCore.MySql" -o Models -c BDContexto -f
+    $ dotnet ef dbcontext scaffold "Server=localhost;User=guest;Password=123;Database=letmerate" "Pomelo.EntityFrameworkCore.MySql" -o Models -c BDContexto -f
 ```
 
 2. Compila o projeto:

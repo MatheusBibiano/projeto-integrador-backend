@@ -30,7 +30,7 @@ namespace backend.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("server=192.168.0.115;user=guest;password=123;database=letmerate", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.3.34-mariadb"));
+                optionsBuilder.UseMySql("server=localhost;user=guest;password=123;database=letmerate", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.6.7-mariadb"));
             }
         }
 
